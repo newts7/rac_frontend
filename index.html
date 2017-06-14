@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2NpEdiHi90zIRv-BNutZj_vts_Zsc6Ao&libraries=places&callback=initAutocomplete"
+            async defer></script>
+    <link href="pure.css" rel="stylesheet">
+</head>
+
+<script>
+
+    var placeSearch, autocomplete;
+
+
+    function initAutocomplete() {
+
+        autocomplete = new google.maps.places.Autocomplete(
+            (document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+    }
+
+
+
+</script>
+<body ng-app="app">
+
+
+<div ng-controller="mycontroller">
+
+    <form class="pure-form-aligned">
+
+        <br>Name:<input type="text" ng-model="c.name">
+
+
+            <br>Location:<input id="autocomplete" placeholder="Enter your Location  "
+                    type="text" ng-model="c.location"/>
+
+
+
+
+        <br><button  class="pure-button" ng-click="handleForm()"></button>
+    </form>
+</div>
+
+
+
+
+
+</body>
+</html>
